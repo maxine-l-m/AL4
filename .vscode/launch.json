@@ -1,0 +1,16 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "PacmanGameApplication",
+            "request": "launch",
+            "mainClass": "il.ac.tau.cs.software1.pacman.PacmanGameApplication",
+            "vmArgs": "-cp \"C:\\Program Files\\lwjgl-release-3.3.6-custom\\*\"",
+            "projectName": "AL4_df16b9d6"
+        }
+    ]
+}

@@ -1,6 +1,6 @@
-package il.ac.tau.cs.software1.pacman;
+package il.ac.tau.cs.software1.constants;
 
-public class PacmanConstants {
+public class SizesConstants {
 	/*
 	 * Various constants used for the Pac-Man game 
 	 */

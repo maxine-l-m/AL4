@@ -1,13 +1,17 @@
 package il.ac.tau.cs.software1.pacman;
 
-import il.ac.tau.cs.software1.core.*;
-
+import il.ac.tau.cs.software1.components.ImageComponent;
 
 public abstract class PacmanBonus extends PacmanGameObject {
 
-	protected int bonusScore = 0;
-	
-	public PacmanBonus(PacmanGridComponent initialPosition) {
-		super(initialPosition);
+	private int bonusScore = 0;
+
+	public int getBonusScore() {
+		return bonusScore;
+	}
+
+	public PacmanBonus(GridPosition initialPosition, ImageComponent imageComponent, int bonusScore) {
+		super(initialPosition, imageComponent);
+		this.bonusScore = bonusScore;
 	}
 }

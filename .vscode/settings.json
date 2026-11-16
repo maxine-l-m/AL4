@@ -1,0 +1,9 @@
+{
+    "java.project.referencedLibraries": [
+        "C:/Program Files/lwjgl-release-3.3.6-custom/**/*.jar"
+    ],
+    "cSpell.words": [
+        "kenney",
+        "Pacman"
+    ]
+}

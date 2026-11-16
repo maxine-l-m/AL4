@@ -2,10 +2,11 @@ package il.ac.tau.cs.software1.pacman;
 
 import java.util.*;
 
+import il.ac.tau.cs.software1.constants.SizesConstants;
+import il.ac.tau.cs.software1.constants.TextureNames;
 import il.ac.tau.cs.software1.core.*;
 import il.ac.tau.cs.software1.framework.*;
 import il.ac.tau.cs.software1.math.*;
-import il.ac.tau.cs.software1.pacman.*;
 
 
 public class PacmanGameApplication implements IGameLogic {
@@ -21,11 +22,11 @@ public class PacmanGameApplication implements IGameLogic {
 	
 	public void init() {
 		// Load texture assets
-		Renderer.getInstance().addTexture("cat", "resources/textures/Cat03.jpg");
-		Renderer.getInstance().addTexture("player", "resources/textures/kenney_tiny-dungeon/Tiles/tile_0112.png");
-		Renderer.getInstance().addTexture("wall", "resources/textures/kenney_tiny-dungeon/Tiles/tile_0040.png");
-		Renderer.getInstance().addTexture("bonus-dot", "resources/textures/kenney_tiny-dungeon/Tiles/tile_0101.png");
-		Renderer.getInstance().addTexture("bonus-cherry", "resources/textures/kenney_tiny-dungeon/Tiles/tile_0115.png"); //IMAGE FOR CHERRY BONUS
+		Renderer.getInstance().addTexture(TextureNames.cat, "resources/textures/Cat03.jpg");
+		Renderer.getInstance().addTexture(TextureNames.player, "resources/textures/kenney_tiny-dungeon/Tiles/tile_0112.png");
+		Renderer.getInstance().addTexture(TextureNames.wall, "resources/textures/kenney_tiny-dungeon/Tiles/tile_0040.png");
+		Renderer.getInstance().addTexture(TextureNames.bonusDot, "resources/textures/kenney_tiny-dungeon/Tiles/tile_0101.png");
+		Renderer.getInstance().addTexture(TextureNames.bonusCherry, "resources/textures/kenney_tiny-dungeon/Tiles/tile_0115.png"); //IMAGE FOR CHERRY BONUS
 		
 		// Read scene
 		objects = PacmanSceneReader.readScene("resources/scenes/second.txt");
@@ -74,8 +75,8 @@ public class PacmanGameApplication implements IGameLogic {
 		// Also note that collision detection is done in screen space coordinates,
 		// hence we need to adjust the velocity accordingly.
 		Vector2 adjustedRequestedVelocity = new Vector2(
-				playerRequestedVelocity.x * PacmanConstants.cellWidth,
-				playerRequestedVelocity.y * PacmanConstants.cellHeight
+				playerRequestedVelocity.x * SizesConstants.cellWidth,
+				playerRequestedVelocity.y * SizesConstants.cellHeight
 		);
 		if (CollisionDetection.canPerformTick(
 				player, objects, adjustedRequestedVelocity, 
@@ -91,8 +92,8 @@ public class PacmanGameApplication implements IGameLogic {
 	}
 	
 	public void render() {
-//		Renderer.getInstance().fillColor(100, 149, 237); // Cornflower Blue
-		Renderer.getInstance().fillColor(50, 50, 50);
+		Renderer.getInstance().fillColor(100, 149, 237); // Cornflower Blue
+		// Renderer.getInstance().fillColor(50, 50, 50);
 		
 		for (PacmanGameObject obj : objects)
 			obj.render();
@@ -104,7 +105,7 @@ public class PacmanGameApplication implements IGameLogic {
 	
 	public static void main(String[] args) {
 		PacmanGameApplication pacmanLogic = new PacmanGameApplication();
-		GameApplication gameApplication = new GameApplication(pacmanLogic, PacmanConstants.screenWidth, PacmanConstants.screenHeight, "SW1: Pac-Man!");
+		GameApplication gameApplication = new GameApplication(pacmanLogic, SizesConstants.screenWidth, SizesConstants.screenHeight, "SW1: Pac-Man!");
 		gameApplication.run();
 	}
 }
